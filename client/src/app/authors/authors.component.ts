@@ -23,7 +23,7 @@ export class AuthorsComponent {
     this.author = null;
     this.errorMessage = '';
 
-    this.http.get(`http://localhost:8080/authors/${this.authorId}`)
+    this.http.get(`http://localhost:8080/books-api/authors/${this.authorId}`)
       .subscribe({
         next: (data) => {
           this.author = data;

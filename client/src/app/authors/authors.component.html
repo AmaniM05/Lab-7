@@ -1,0 +1,27 @@
+<h2>Search Author</h2>
+
+<label>Author ID:</label>
+
+<input
+  type="number"
+  [(ngModel)]="authorId">
+
+<button (click)="searchAuthor()">
+  Search
+</button>
+
+<hr>
+
+<div *ngIf="author">
+  <h3>Author Information</h3>
+
+  <p><strong>ID:</strong> {{ author.id }}</p>
+  <p><strong>First Name:</strong> {{ author.firstName }}</p>
+  <p><strong>Last Name:</strong> {{ author.lastName }}</p>
+</div>
+
+<div *ngIf="errorMessage">
+  <p style="color:red">
+    {{ errorMessage }}
+  </p>
+</div>

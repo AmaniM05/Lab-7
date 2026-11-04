@@ -1,0 +1,18 @@
+<h2>Find an Author</h2>
+
+<form (ngSubmit)="onSubmit()">
+  <label for="authorId">Author id:</label>
+  <input id="authorId" type="number" [formControl]="idControl">
+  <button type="submit" [disabled]="idControl.invalid">Search</button>
+</form>
+
+@if (author) {
+  <div class="author-info">
+    <h3>{{ author.firstName }} {{ author.lastName }}</h3>
+    <p>Id: {{ author.id }}</p>
+  </div>
+}
+
+@if (message) {
+  <p class="error">{{ message }}</p>
+}

@@ -13,11 +13,11 @@ function categoryValidator(control: FormControl<string>): { [s: string]: boolean
 }
 
 @Component({
-    selector: 'app-admin',
-    templateUrl: './admin.component.html',
-    styleUrls: ['./admin.component.css'],
-    standalone: true,
-    imports: [NgStyle, FormsModule, ReactiveFormsModule, NgFor]
+  selector: 'app-admin',
+  templateUrl: './admin.component.html',
+  styleUrls: ['./admin.component.css'],
+  standalone: true,
+  imports: [NgStyle, FormsModule, ReactiveFormsModule, NgFor]
 })
 export class AdminComponent implements OnInit {
   private builder: FormBuilder = inject(FormBuilder);
@@ -82,19 +82,18 @@ export class AdminComponent implements OnInit {
         authors.forEach(
           (author: Author) => {
             this.booksService.getAuthorsNamed(author.firstName, author.lastName).subscribe({
-                next: (authorList: Author[]) => {
-                  if (authorList === undefined || authorList.length === 0) {
-                    this.booksService.addBookAuthor(response.id, author).subscribe();
-                  } else {
-                    // *** Assumes unique firstName/LastName for Authors
-                    this.booksService.updateBookAuthors(response.id, authorList[0].id).subscribe();
-                  }
+              next: (authorList: Author[] | undefined) => {
+                if (authorList === undefined || authorList.length === 0) {
+                  this.booksService.addBookAuthor(response.id, author).subscribe();
+                } else {
+                  // *** Assumes unique firstName/LastName for Authors
+                  this.booksService.updateBookAuthors(response.id, authorList[0].id).subscribe();
                 }
               }
-            );
+            });
           }
         );
-        this.showMessage('info', `The was successfully added with id ${response.id}`);
+        this.showMessage('info', `The book was successfully added with id ${response.id}`);
       },
       error: (_: any) => {
         this.showMessage('error', 'Unable to add the book');

@@ -1,6 +1,6 @@
 # SEG3502 — Laboratoire 7 — Code de départ
 
-Ce fichier ZIP contient les deux parties nécessaires au laboratoire :
+Ce dépôt contient les deux parties nécessaires au laboratoire :
 
 - `client/` : application Angular BookStore à étendre;
 - `server/` : API REST Spring Boot/Kotlin et accès MySQL.
@@ -43,7 +43,7 @@ http://localhost:8080/swagger-ui.html
 
 ## 3. Démarrer le client Angular
 
-Dans un deuxième terminal :
+Dans un deuxième terminal ouvert à la racine du dépôt :
 
 ```bash
 cd client
